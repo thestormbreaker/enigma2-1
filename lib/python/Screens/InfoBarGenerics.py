@@ -3985,11 +3985,11 @@ class InfoBarSubserviceSelection:
 					serviceRef = self.session.nav.getCurrentlyPlayingServiceReference()
 					subservices = self.getAvailableSubservices(serviceRef)
 					if not subservices or len(subservices) == 0:
-						self.openPluginBrowser()
+						self.openGreenPanel()
 					else:
 						self.subserviceSelection()
 				else:
-					self.openPluginBrowser()
+					self.openGreenPanel()
 			else:
 				self.subserviceSelection()
 
@@ -3997,6 +3997,13 @@ class InfoBarSubserviceSelection:
 		try:
 			from Screens.PluginBrowser import PluginBrowser
 			self.session.open(PluginBrowser)
+		except:
+			pass
+			
+	def openGreenPanel(self):
+		try:
+			from Screens.BpGreen import DeliteGreenPanel
+			self.session.open(DeliteGreenPanel)
 		except:
 			pass
 
