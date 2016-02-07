@@ -10,4 +10,4 @@ Openbh gui
     
     make
 
-    MACHINE=vuplus4k DISTRO=openbh make image
+    MACHINE=vusolo4k DISTRO=openbh make image
