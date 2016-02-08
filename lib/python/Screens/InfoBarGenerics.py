@@ -2994,14 +2994,18 @@ class InfoBarExtensions:
 	def quickmenuStart(self):
 		try:
 			if not self.session.pipshown:
-				from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
-				self.session.open(QuickMenu)
+#				from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+#				self.session.open(QuickMenu)
+				from Screens.BpBlue import DeliteBluePanel
+				self.session.open(DeliteBluePanel)
 			else:
 				self.showExtensionSelection()
 		except:
 			print "[INFOBARGENERICS] QuickMenu: error pipshow, starting Quick Menu"
-			from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
-			self.session.open(QuickMenu)
+#			from Plugins.Extensions.Infopanel.QuickMenu import QuickMenu
+#			self.session.open(QuickMenu)
+			from Screens.BpBlue import DeliteBluePanel
+			self.session.open(DeliteBluePanel)
 
 	def SelectopenEventView(self):
 		try:
