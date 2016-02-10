@@ -53,6 +53,8 @@ class DeliteDevicesPanel(Screen):
 		
 		f = open("/tmp/blkid.log",'r')
 		for line in f.readlines():
+			if line.find('/dev/sd') == -1:
+				continue
 			parts = line.strip().split()
 			device = parts[0][5:-2]
 			partition = parts[0][5:-1]
