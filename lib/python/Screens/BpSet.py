@@ -201,12 +201,12 @@ class DeliteSettings(Screen):
 		res = (name, png, idx)
 		self.list.append(res)
 		
-		mypixmap = mypath + "icons/infopanel_space.png"
-		png = LoadPixmap(mypixmap)
-		name = _("Recording paths")
-		idx = 13
-		res = (name, png, idx)
-		self.list.append(res)
+#		mypixmap = mypath + "icons/infopanel_space.png"
+#		png = LoadPixmap(mypixmap)
+#		name = _("Recording paths")
+#		idx = 13
+#		res = (name, png, idx)
+#		self.list.append(res)
 				
 		mypixmap = mypath + "icons/infopanel_kmod.png"
 		png = LoadPixmap(mypixmap)
