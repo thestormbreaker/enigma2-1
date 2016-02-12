@@ -350,8 +350,10 @@ class BhEpgPanel(Screen):
 				from Plugins.Extensions.EPGImportFilter.plugin import main as epgimportfilter
 				epgimportfilter(self.session)
 			elif sel == "EPGSearch":
-				from Plugins.Extensions.EPGSearch.plugin import main as epgsearch
-				epgsearch(self.session)
+				#from Plugins.Extensions.EPGSearch.plugin import main as epgsearch
+				#epgsearch(self.session)
+				from Plugins.Extensions.EPGSearch.EPGSearch import EPGSearch  as epgsearch
+				self.session.open(epgsearch)
 			
 			
 	
