@@ -344,7 +344,7 @@ class BhEpgPanel(Screen):
 				from Screens.Setup import Setup
 				self.session.open(Setup, "epgsettings")
 			elif sel == "XMLTVImport":
-				from Plugins.Extensions.EPGImport.plugin import main as xmltv
+				from Plugins.Extensions.XMLTVImport.plugin import main as xmltv
 				xmltv(self.session)
 			elif sel == "EPGImportFilter":
 				from Plugins.Extensions.EPGImportFilter.plugin import main as epgimportfilter
