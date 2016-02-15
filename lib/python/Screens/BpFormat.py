@@ -117,26 +117,26 @@ class Bp_UsbFormat(Screen):
 	def writePartFile(self):
 		p1 = p2 = p3 = p4 = "0"
 		device = "/dev/" + self.device
-		out0 = "#!/bin/sh\n\nsfdisk %s -uM << EOF\n" % (device)
+		out0 = "#!/bin/sh\n\nsfdisk %s << EOF\n" % (device)
 		
 		msg = _("Total Megabyte Available: \t") + str(self.totalsize)
 		msg += _("\nPartition scheme:\n")
 		p1 = self.p1size
-		out1 = ",%s\n" % (self.p1size)
+		out1 = ",%sM\n" % (self.p1size)
 		if self.totalpartitions == 1:
 			p1 = str(self.totalsize)
 			out1 = ";\n"
 		msg += "%s1 \t size:%s M\n" % (device, p1)
 		if self.totalpartitions > 1:
 			p2 = self.p2size
-			out2 = ",%s\n" % (self.p2size)
+			out2 = ",%sM\n" % (self.p2size)
 			if self.totalpartitions == 2:
 				p2 = self.totalsize - int(self.p1size)
 				out2 = ";\n"
 			msg += "%s2 \t size:%s M\n" % (device, p2)
 		if self.totalpartitions > 2:
 			p3 = self.p3size
-			out3 = ",%s\n" % (self.p3size)
+			out3 = ",%sM\n" % (self.p3size)
 			if self.totalpartitions == 3:
 				p3 = self.totalsize - (int(self.p1size) + int(self.p2size))
 				out3 = ";\n"
@@ -173,6 +173,8 @@ class Bp_UsbFormat(Screen):
 		self["key_green"].hide()
 		
 		device = "/dev/%s" % (self.device)
+		cmd = "umount -l " + device + "1"
+		system(cmd)
 		cmd = "echo -e 'Partitioning: %s \n\n'" % (device)
 		cmd2 = "/tmp/sfdisk.tmp"
 		self.session.open(Console, title=_("Partitioning..."), cmdlist=[cmd, cmd2], finishedCallback = self.partDone)
