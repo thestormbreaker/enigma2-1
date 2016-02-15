@@ -1508,7 +1508,9 @@ class UpdatePlugin(Screen):
 				"An online update is done at your own risk !!\n\n\n"
 				"Do you still want to update?") % (getMachineBrand(), getMachineName())
 
-		if datedelay > date.today():
+# Edit by black Hole to jump date check
+#		if datedelay > date.today():
+		if 2 > 1:
 			self.updating = True
 			self.activityTimer.start(100, False)
 			self.ipkg.startCmd(IpkgComponent.CMD_UPGRADE_LIST)
@@ -1537,23 +1539,25 @@ class UpdatePlugin(Screen):
 		doUpdate = True
 		# TODO: Use Twisted's URL fetcher, urlopen is evil. And it can
 		# run in parallel to the package update.
-		try:
-			urlopenATV = "http://ampel.mynonpublic.com/Ampel/index.php"
-			d = urlopen(urlopenATV)
-			tmpStatus = d.read()
-			if (os.path.exists("/etc/.beta") and 'rot.png' in tmpStatus) or 'gelb.png' in tmpStatus:
-				message = _("Caution update not yet tested !!") + "\n" + _("Update at your own risk") + "\n\n" + _("For more information see http://www.opena.tv") + "\n\n"# + _("Last Status Date") + ": "  + statusDate + "\n\n"
-				picon = MessageBox.TYPE_ERROR
-				default = False
-			elif 'rot.png' in tmpStatus:
-				message = _("Update is reported as faulty !!") + "\n" + _("Aborting updateprogress") + "\n\n" + _("For more information see http://www.opena.tv")# + "\n\n" + _("Last Status Date") + ": " + statusDate
-				picon = MessageBox.TYPE_ERROR
-				default = False
-				doUpdate = False
-		except:
-			message = _("The status of the current update could not be checked because http://www.opena.tv could not be reached for some reason") + "\n"
-			picon = MessageBox.TYPE_ERROR
-			default = False
+
+# Edit by black Hole to jump traffic check
+#		try:
+#			urlopenATV = "http://ampel.mynonpublic.com/Ampel/index.php"
+#			d = urlopen(urlopenATV)
+#			tmpStatus = d.read()
+#			if (os.path.exists("/etc/.beta") and 'rot.png' in tmpStatus) or 'gelb.png' in tmpStatus:
+#				message = _("Caution update not yet tested !!") + "\n" + _("Update at your own risk") + "\n\n" + _("For more information see http://www.opena.tv") + "\n\n"# + _("Last Status Date") + ": "  + statusDate + "\n\n"
+#				picon = MessageBox.TYPE_ERROR
+#				default = False
+#			elif 'rot.png' in tmpStatus:
+#				message = _("Update is reported as faulty !!") + "\n" + _("Aborting updateprogress") + "\n\n" + _("For more information see http://www.opena.tv")# + "\n\n" + _("Last Status Date") + ": " + statusDate
+#				picon = MessageBox.TYPE_ERROR
+#				default = False
+#				doUpdate = False
+#		except:
+#			message = _("The status of the current update could not be checked because http://www.opena.tv could not be reached for some reason") + "\n"
+#			picon = MessageBox.TYPE_ERROR
+#			default = False
 		socket.setdefaulttimeout(currentTimeoutDefault)
 
 		if default:
