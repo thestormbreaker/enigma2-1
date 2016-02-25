@@ -280,7 +280,7 @@ class PliExtraInfo(Poll, Converter, object):
 		return res
 
 	def createCryptoSpecial(self, info):
-		caid_name = "Free to Air "
+		caid_name = "Free to Air"
 		try:
 			for caid_entry in self.caid_data:
 				if int(caid_entry[0], 16) <= int(self.current_caid, 16) <= int(caid_entry[1], 16):
