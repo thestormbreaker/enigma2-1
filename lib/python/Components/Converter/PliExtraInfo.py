@@ -22,47 +22,47 @@ class PliExtraInfo(Poll, Converter, object):
 		self.poll_interval = 1000
 		self.poll_enabled = True
 		self.caid_data = (
-			("0x1700", "0x17ff", "Beta",     "B",  True  ),
-			( "0x600",  "0x6ff", "Irdeto",   "I",  True  ),
 			( "0x100",  "0x1ff", "Seca",     "S",  True  ),
 			( "0x500",  "0x5ff", "Via",      "V",  True  ),
+			( "0x600",  "0x6ff", "Irdeto",   "I",  True  ),
+			( "0x900",  "0x9ff", "NDS",      "Nd", True  ),
+			( "0xb00",  "0xbff", "Conax",    "Co", True  ),
+			( "0xd00",  "0xdff", "CryptoW",  "Cw", True  ),
+			( "0xe00",  "0xeff", "PowerVU",  "P",  False ),
+			("0x1700", "0x17ff", "Beta",     "B",  True  ),
 			("0x1800", "0x18ff", "Nagra",    "N",  True  ),
-			( "0xd00",  "0xdff", "CryptoW",  "CW", True  ),
-			( "0x900",  "0x9ff", "NDS",      "ND", True  ),
-			( "0xb00",  "0xbff", "Conax",    "CO", True  ),
-			("0x4ae0", "0x4ae1", "Dre",      "DC", True  ),
-			("0x5581", "0x5581", "BulCrypt", "BU", True  ),
-			("0x2600", "0x2600", "Biss",     "BI", True  ),			
-			( "0xe00",  "0xeff", "PowerVu",  "PV", True  ),
-			("0x4aee", "0x4aee", "BulCrypt", "BU", False )
+			("0x2600", "0x2600", "Biss",     "Bi", False ),
+			("0x4ae0", "0x4ae1", "Dre",      "D",  False ),
+			("0x4aee", "0x4aee", "BulCrypt", "B1", False ),
+			("0x5581", "0x5581", "BulCrypt", "B2", False )
 		)
 		self.ca_table = (
-			("CryptoCaidBetaAvailable",	"B",	False),
-			("CryptoCaidIrdetoAvailable",	"I",	False),		
 			("CryptoCaidSecaAvailable",	"S",	False),
-			("CryptoCaidViaAvailable",	"V",	False),		
-			("CryptoCaidNagraAvailable",	"N",	False),	
-			("CryptoCaidCryptoWAvailable",	"CW",	False),						
-			("CryptoCaidNDSAvailable",	"ND",	False),
-			("CryptoCaidConaxAvailable",	"CO",	False),
-			("CryptoCaidDreAvailable",	"DC",	False),
-			("CryptoCaidBulCrypt2Available","BU",	False),			
-			("CryptoCaidBissAvailable",	"BI",	False),
-			("CryptoCaidPowerVuAvailable",	"PV",	False),
-			("CryptoCaidBulCrypt1Available","BU",	False),
-			("CryptoCaidBetaSelected",	"B",	True),
-			("CryptoCaidIrdetoSelected",	"I",	True),
+			("CryptoCaidViaAvailable",	"V",	False),
+			("CryptoCaidIrdetoAvailable",	"I",	False),
+			("CryptoCaidNDSAvailable",	"Nd",	False),
+			("CryptoCaidConaxAvailable",	"Co",	False),
+			("CryptoCaidCryptoWAvailable",	"Cw",	False),
+			("CryptoCaidPowerVUAvailable",	"P",	False),
+			("CryptoCaidBetaAvailable",	"B",	False),
+			("CryptoCaidNagraAvailable",	"N",	False),
+			("CryptoCaidBissAvailable",	"Bi",	False),
+			("CryptoCaidDreAvailable",	"D",	False),
+			("CryptoCaidBulCrypt1Available","B1",	False),
+			("CryptoCaidBulCrypt2Available","B2",	False),
 			("CryptoCaidSecaSelected",	"S",	True),
 			("CryptoCaidViaSelected",	"V",	True),
+			("CryptoCaidIrdetoSelected",	"I",	True),
+			("CryptoCaidNDSSelected",	"Nd",	True),
+			("CryptoCaidConaxSelected",	"Co",	True),
+			("CryptoCaidCryptoWSelected",	"Cw",	True),
+			("CryptoCaidPowerVUSelected",	"P",	True),
+			("CryptoCaidBetaSelected",	"B",	True),
 			("CryptoCaidNagraSelected",	"N",	True),
-			("CryptoCaidCryptoWSelected",	"CW",	True),
-			("CryptoCaidNDSSelected",	"ND",	True),
-			("CryptoCaidConaxSelected",	"CO",	True),
-			("CryptoCaidDreSelected",	"DC",	True),
-			("CryptoCaidBulCrypt2Selected",	"BU",	True),
-			("CryptoCaidBissSelected",	"BI",	True),
-			("CryptoCaidPowerVuSelected",	"PV",	True),
-			("CryptoCaidBulCrypt1Selected",	"BU",	True),
+			("CryptoCaidBissSelected",	"Bi",	True),
+			("CryptoCaidDreSelected",	"D",	True),
+			("CryptoCaidBulCrypt1Selected",	"B1",	True),
+			("CryptoCaidBulCrypt2Selected",	"B2",	True),
 		)
 		self.ecmdata = GetEcmInfo()
 		self.feraw = self.fedata = self.updateFEdata = None
@@ -199,7 +199,7 @@ class PliExtraInfo(Poll, Converter, object):
 		res += "\c00??????"
 		return res
 
-	def createCryptoPowerVu(self, info):
+	def createCryptoPowerVU(self, info):
 		available_caids = info.getInfoObject(iServiceInformation.sCAIDs)
 		if int('0xe00', 16) <= int(self.current_caid, 16) <= int('0xeff', 16):
 			color="\c004c7d3f"
@@ -211,7 +211,7 @@ class PliExtraInfo(Poll, Converter, object):
 						color="\c00eeee00"
 			except:
 				pass
-		res = color + 'PV'
+		res = color + 'P'
 		res += "\c00??????"
 		return res
 
@@ -280,7 +280,7 @@ class PliExtraInfo(Poll, Converter, object):
 		return res
 
 	def createCryptoSpecial(self, info):
-		caid_name = "Free to Air"
+		caid_name = "FTA"
 		try:
 			for caid_entry in self.caid_data:
 				if int(caid_entry[0], 16) <= int(self.current_caid, 16) <= int(caid_entry[1], 16):
@@ -708,13 +708,6 @@ class PliExtraInfo(Poll, Converter, object):
 			else:
 				return ""
 
-		if self.type == "CryptoPowerVu":
-			if int(config.usage.show_cryptoinfo.value) > 0:
-				self.getCryptoInfo(info)
-				return self.createCryptoPowerVu(info)
-			else:
-				return ""
-						
 		if self.type == "CryptoDre":
 			if int(config.usage.show_cryptoinfo.value) > 0:
 				self.getCryptoInfo(info)
@@ -801,9 +794,6 @@ class PliExtraInfo(Poll, Converter, object):
 
 		if self.type == "PIDInfo":
 			return self.createPIDInfo(info)
-
-		if not feraw:
-			return ""
 
 		if self.type == "TerrestrialChannelNumber":
 			return self.createChannelNumber(fedata, feraw)
