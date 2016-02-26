@@ -199,7 +199,7 @@ class PliExtraInfo(Poll, Converter, object):
 		res += "\c00??????"
 		return res
 
-	def createCryptoBulCrypt1(self, info):
+	def createCryptoBulCrypt(self, info):
 		available_caids = info.getInfoObject(iServiceInformation.sCAIDs)
 		if int('0x4aee', 16) <= int(self.current_caid, 16) <= int('0x4aee', 16):
 			color="\c004c7d3f"
@@ -215,7 +215,7 @@ class PliExtraInfo(Poll, Converter, object):
 		res += "\c00??????"
 		return res		
 		
-	def createCryptoBulCrypt2(self, info):
+	def createCryptoBulCrypt(self, info):
 		available_caids = info.getInfoObject(iServiceInformation.sCAIDs)
 		if int('0x5581', 16) <= int(self.current_caid, 16) <= int('0x5581', 16):
 			color="\c004c7d3f"
