@@ -3389,8 +3389,8 @@ msgstr "Настройки кнопок"
 msgid "Buyukbang Panel"
 msgstr "Панель Буюкбанг"
 
-msgid "By openATV Image Team"
-msgstr "От команды openATV"
+msgid "By BlackHole Team"
+msgstr "От команды BlackHole"
 
 msgid "Bypass HDMI EDID Check"
 msgstr "Отключить проверку HDMI EDID"
@@ -12383,7 +12383,7 @@ msgid "MyAtile"
 msgstr "Стиль Atile"
 
 msgid "MyEnigmaTranslation"
-msgstr "Мой перевод имиджа OpenATV"
+msgstr "Мой перевод имиджа BlackHole"
 
 msgid "MyFreeMp3"
 msgstr "Плагин MyFreeMp3"
@@ -18371,7 +18371,7 @@ msgid "Setup Mounts"
 msgstr "Установки монтирования"
 
 msgid "Setup MyEnigmaTranslation"
-msgstr "Локализация OpenATV"
+msgstr "Локализация BlackHole"
 
 msgid "Setup NFS"
 msgstr "Настройки NFS"

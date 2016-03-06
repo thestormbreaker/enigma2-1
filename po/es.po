@@ -1426,8 +1426,8 @@ msgstr "Bus: "
 msgid "Button"
 msgstr "Tecla"
 
-msgid "By openATV Image Team"
-msgstr "Por el equipo OpenATV"
+msgid "By BlackHole Team"
+msgstr "Por el equipo BlackHole"
 
 #
 msgid "By pressing the OK Button on your remote control, the info bar is being displayed."

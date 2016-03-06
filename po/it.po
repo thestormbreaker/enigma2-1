@@ -8978,8 +8978,8 @@ msgstr "Backup completo"
 
 #: lib/python/Plugins/SystemPlugins/SoftwareManager/ImageBackup.py:355
 #: lib/python/Screens/About.py:41 lib/python/Screens/About.py:252
-msgid "By openATV Image Team"
-msgstr "By openATV Image Team"
+msgid "By BlackHole Team"
+msgstr "By BlackHole Team"
 
 #: lib/python/Plugins/SystemPlugins/SoftwareManager/ImageBackup.py:356
 #: lib/python/Screens/About.py:44
@@ -10298,8 +10298,8 @@ msgid "Translations"
 msgstr "Traduzione"
 
 #: lib/python/Screens/About.py:40 lib/python/Screens/About.py:251
-msgid "openATV"
-msgstr "OpenATV"
+msgid "BlackHole"
+msgstr "BlackHole"
 
 #: lib/python/Screens/About.py:45
 #, python-format

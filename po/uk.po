@@ -2192,8 +2192,8 @@ msgstr "Кнопка"
 msgid "Button Setup"
 msgstr "Налаштування кнопок"
 
-msgid "By openATV Image Team"
-msgstr "Від команди openATV"
+msgid "By BlackHole Team"
+msgstr "Від команди BlackHole"
 
 #
 msgid ""

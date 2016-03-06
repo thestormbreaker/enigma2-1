@@ -10799,8 +10799,8 @@ msgstr "Szybki Skan"
 msgid "Blindscan was canceled by the user."
 msgstr "Szybke skanowanie zostało anulowane przez użytkownika."
 
-msgid "By openATV Image Team"
-msgstr "Przez zespół openATV"
+msgid "By BlackHole Team"
+msgstr "Przez zespół BlackHole"
 
 msgid "By pressing the OK Button on your remote control, the info bar is being displayed."
 msgstr "Po naciśnięciu przycisku 'OK 'na pilocie zdalnego sterowania, pasek informacyjny jest wyświetlany."

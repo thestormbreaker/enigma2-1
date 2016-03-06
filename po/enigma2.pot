@@ -8943,7 +8943,7 @@ msgstr ""
 #: lib/python/Plugins/SystemPlugins/SoftwareManager/ImageBackup.py:355
 #: lib/python/Screens/About.py:41
 #: lib/python/Screens/About.py:252
-msgid "By openATV Image Team"
+msgid "By BlackHole Team"
 msgstr ""
 
 #: lib/python/Plugins/SystemPlugins/SoftwareManager/ImageBackup.py:356
@@ -10177,7 +10177,7 @@ msgstr ""
 
 #: lib/python/Screens/About.py:40
 #: lib/python/Screens/About.py:251
-msgid "openATV"
+msgid "BlackHole"
 msgstr ""
 
 #: lib/python/Screens/About.py:45

@@ -1324,8 +1324,8 @@ msgstr "Nastavenie tlačidiel"
 msgid "Button setup"
 msgstr "Nastavenie tlačidiel"
 
-msgid "By openATV Image Team"
-msgstr "Od OpenATV Image Team"
+msgid "By BlackHole Team"
+msgstr "Od BlackHole Image Team"
 
 msgid "Bypass HDMI EDID Check"
 msgstr "Preskočiť HDMI EDID test"

@@ -1420,8 +1420,8 @@ msgstr "Bus: "
 msgid "Button"
 msgstr "Taste"
 
-msgid "By openATV Image Team"
-msgstr "Vom openATV-Imageteam"
+msgid "By BlackHole Team"
+msgstr "Vom BlackHole-Team"
 
 #
 msgid "By pressing the OK Button on your remote control, the info bar is being displayed."

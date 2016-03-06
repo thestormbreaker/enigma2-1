@@ -1918,8 +1918,8 @@ msgstr "Paramètre des boutons"
 msgid "ButtonSetup"
 msgstr "Paramètres des boutons"
 
-msgid "By openATV Image Team"
-msgstr "Par l’équipe de openATV"
+msgid "By BlackHole Team"
+msgstr "Par l’équipe de BlackHole"
 
 msgid "Bypass HDMI EDID Check"
 msgstr "Contourner la vérification du HDMI EDID"
