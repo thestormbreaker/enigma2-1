@@ -238,7 +238,7 @@ class Nab_downArea(Screen):
 		
 		mypixmap = mypath + "icons/nabplugins.png"
 		png = LoadPixmap(mypixmap)
-		name = _("Black Hole Addons Plugins")
+		name = _("Open Black Hole Addons Plugins")
 		idx = 1
 		res = (name, png, idx)
 		self.list.append(res)
@@ -297,7 +297,7 @@ class Nab_downArea(Screen):
 		
 		
 	def KeyOk(self):
-		pluginver = "Plugins2"
+		pluginver = "OpenBlackHole-Plugins"
 		catver = "outcat10_3"
 		
 		self.sel = self["list"].getCurrent()
@@ -309,7 +309,7 @@ class Nab_downArea(Screen):
 		
 		if self.sel == 1:
 			self.url = "http://www.vuplus-community.net/bhaddons/index.php?op=outcat&cat=" + pluginver
-			self.title = "Black Hole Addons Plugins"
+			self.title = "Open Black Hole Addons Plugins"
 		elif  self.sel == 2:
 			self.url = "feeds"
 			self.title = "Open Black Hole Feeds Plugins"
