@@ -322,4 +322,5 @@ class BlackPoleSwap(Screen):
 			else:
 				self.session.open(MessageBox, _("Swap File creation Failed. Check for available space."), MessageBox.TYPE_INFO)
 			
+			
 
