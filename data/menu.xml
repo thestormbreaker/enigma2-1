@@ -53,6 +53,7 @@
 			<item weight="0" level="0" entryID="channelselection_setup"><setup id="channelselection" /></item>
 			<item weight="5" level="0" entryID="usage_setup"><setup id="usage" /></item>
 			<item weight="10" level="0" entryID="user_interface"><setup id="userinterface" /></item>
+			<item weight="15" level="0" entryID="remote_setup"><setup id="remotesetup"/></item>
 			<menu weight="20" level="0" text="Front Panel Display" entryID="display_selection" requires="Display">
 				<id val="display" />
 				<item weight="0" level="0" entryID="display_setup"><setup id="display" /></item>
@@ -69,8 +70,7 @@
 				<item weight="50" level="0" text="Language" entryID="language_setup"><screen module="LanguageSelection" /></item>	
 				<item weight="60" level="1" text="OSD Position" entryID="osdsetup" requires="CanChangeOsdPosition"><screen module="UserInterfacePositioner" screen="UserInterfacePositioner2"/></item>				
 				<item weight="70" level="0" entryID="specialfeatures_menu"><setup id="specialfeatures" /></item>
-				<item weight="80" level="0" entryID="remote_setup"><setup id="remotesetup"/></item>
-				<item weight="85" level="1" text="Remote Control Code" entryID="remotecode" requires="RemoteCode">
+				<item weight="80" level="1" text="Remote Control Code" entryID="remotecode" requires="RemoteCode">
 					<code>
 from Plugins.SystemPlugins.RemoteControlCode.plugin import RemoteControlCode
 self.session.open(RemoteControlCode)
