@@ -807,7 +807,7 @@ class DeliteOpenvpn(Screen):
 #			out = open("/etc/default/openvpn",'w')
 #			out.write("AUTOSTART=all")
 #			out.close()
-			system("ln -ls /etc/rc3.d/S40openvpn")
+			system("ln -s /etc/init.d/openvpn /etc/rc3.d/S40openvpn")
 		
 		mybox = self.session.open(MessageBox, mymess, MessageBox.TYPE_INFO)
 		mybox.setTitle("Info")
