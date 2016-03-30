@@ -265,8 +265,11 @@ class BlackPoleSwap(Screen):
 			cmd = "swapoff %s" % self.swap_file
 			rc = system(cmd)
 			try:
-				os_remove("/etc/bp_swap")
-				os_remove(self.swap_file)
+				out = open("/etc/init.d/bp_swap", "w")
+				strview = "#!/bin/sh\n\nexit 0"
+				out.write(strview)
+				out.close()
+				system("chmod 0755 /etc/init.d/bp_swap")
 			except:
 				pass
 			self.updateSwap()
@@ -296,7 +299,7 @@ class BlackPoleSwap(Screen):
 	def selectSize(self, device):
 		if device:
 			self.new_swap = device[1] + "/swapfile"
-			options = [['16 Mega', '16384'], ['32 Mega', '32768'], ['64 Mega', '65536'], ['128 Mega', '131072'], ['256 Mega', '262144']]	
+			options = [['16 Mega', '16384'], ['32 Mega', '32768'], ['64 Mega', '65536'], ['128 Mega', '131072'], ['256 Mega', '262144'], ['512 MB', '524288'], ['1 GB', '1048576'], ['2 GB', '2097152']]		
 			self.session.openWithCallback(self.swapOn,ChoiceBox, title=_("Select the Swap File Size:"), list=options)
 			
 		
@@ -309,12 +312,15 @@ class BlackPoleSwap(Screen):
 				rc = system(cmd)
 				cmd = "swapon %s" % (self.new_swap)
 				rc = system(cmd)
-				out = open("/etc/bp_swap", "w")
-				out.write(self.new_swap)
+				out = open("/etc/init.d/bp_swap", "w")
+				strview = "#!/bin/sh\nmkswap " + self.new_swap + "\nswapon " + self.new_swap + "\nexit 0"
+				out.write(strview)
 				out.close()
+				system("chmod 0755 /etc/init.d/bp_swap")
 				self.session.open(MessageBox, _("Swap File created."), MessageBox.TYPE_INFO)
 				self.updateSwap()
 			else:
 				self.session.open(MessageBox, _("Swap File creation Failed. Check for available space."), MessageBox.TYPE_INFO)
+			
 			
 

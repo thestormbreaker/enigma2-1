@@ -433,8 +433,8 @@ class DeliteInadyn(Screen):
 			mybox = self.session.open(MessageBox, _("You have to Activate Inadyn before to start"), MessageBox.TYPE_INFO)
 			mybox.setTitle("Info")
 		else:
-			rc = system("/usr/bin/inadyn_script.sh stop")
-			rc = system("/usr/bin/inadyn_script.sh start")
+			rc = system("/etc/init.d/inadyn stop")
+			rc = system("/etc/init.d/inadyn start")
 			rc = system("ps")
 			self.updateIna()
 
@@ -448,8 +448,8 @@ class DeliteInadyn(Screen):
 		
 		self.my_nabina_state = False
 		
-		if fileExists("/usr/bin/inadyn_script.sh"):
-			f = open("/usr/bin/inadyn_script.sh",'r')
+		if fileExists("/etc/init.d/inadyn"):
+			f = open("/etc/init.d/inadyn",'r')
  			for line in f.readlines():
 				line = line.strip()
 				if line.find('INADYN_ON=') != -1:
@@ -554,8 +554,8 @@ class DeliteInaSetup(Screen, ConfigListScreen):
 		self.ina_sysactive = NoSave(ConfigYesNo(default="False"))
 		self.ina_system = NoSave(ConfigText(fixed_size = False))
 		
-		if fileExists("/usr/bin/inadyn_script.sh"):
-			f = open("/usr/bin/inadyn_script.sh",'r')
+		if fileExists("/etc/init.d/inadyn"):
+			f = open("/etc/init.d/inadyn",'r')
  			for line in f.readlines():
 				line = line.strip()
 				if line.find('INADYN_ON=') != -1:
@@ -662,8 +662,8 @@ class DeliteInaSetup(Screen, ConfigListScreen):
 		
 	def saveIna(self):
 		
-		if fileExists("/usr/bin/inadyn_script.sh"):
-			inme = open("/usr/bin/inadyn_script.sh",'r')
+		if fileExists("/etc/init.d/inadyn"):
+			inme = open("/etc/init.d/inadyn",'r')
 			out = open("/usr/bin/inadyn_script.tmp",'w')
 			for line in inme.readlines():
 				line = line.replace('\n', '')
@@ -706,8 +706,8 @@ class DeliteInaSetup(Screen, ConfigListScreen):
 			self.close()
 			
 		if fileExists("/usr/bin/inadyn_script.tmp"):
-			system("mv -f  /usr/bin/inadyn_script.tmp /usr/bin/inadyn_script.sh")
-			system("chmod 0755 /usr/bin/inadyn_script.sh")
+			system("mv -f  /usr/bin/inadyn_script.tmp /etc/init.d/inadyn")
+			system("chmod 0755 /etc/init.d/inadyn")
 		
 		self.myStop()
 
@@ -800,12 +800,14 @@ class DeliteOpenvpn(Screen):
 		
 		mymess = _("OpenVpn Enabled. Autostart activated.")
 		if self.my_vpn_active == True:
-			system("rm -f /etc/default/openvpn")
+#			system("rm -f /etc/default/openvpn")
+			system("rm -f /etc/rc3.d/S40openvpn")
 			mymess = _("OpenVpn disabled.")
 		else:
-			out = open("/etc/default/openvpn",'w')
-			out.write("AUTOSTART=all")
-			out.close()
+#			out = open("/etc/default/openvpn",'w')
+#			out.write("AUTOSTART=all")
+#			out.close()
+			system("ln -s /etc/init.d/openvpn /etc/rc3.d/S40openvpn")
 		
 		mybox = self.session.open(MessageBox, mymess, MessageBox.TYPE_INFO)
 		mybox.setTitle("Info")
@@ -845,7 +847,7 @@ class DeliteOpenvpn(Screen):
 		self.my_vpn_run = False
 		
 		
-		if fileExists("/etc/default/openvpn"):
+		if fileExists("/etc/rc3.d/S40openvpn"):
 			self["labactive"].setText(_("Active/Autostart enabled"))
 			self["key_yellow"].setText(_("Deactivate"))
 			self.my_vpn_active = True
